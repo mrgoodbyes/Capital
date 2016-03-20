@@ -1,0 +1,140 @@
+{
+    "errors": [],
+    "warnings": [],
+    "version": "1.12.14",
+    "hash": "00e85295b71e99f06098",
+    "time": 309,
+    "publicPath": "",
+    "assetsByChunkName": {
+        "main": "main.js",
+        "other": "other.js"
+    },
+    "assets": [
+        {
+            "name": "main.js",
+            "size": 1412,
+            "chunks": [
+                0
+            ],
+            "chunkNames": [
+                "main"
+            ],
+            "emitted": true
+        },
+        {
+            "name": "other.js",
+            "size": 1426,
+            "chunks": [
+                1
+            ],
+            "chunkNames": [
+                "other"
+            ],
+            "emitted": true
+        }
+    ],
+    "chunks": [
+        {
+            "id": 0,
+            "rendered": true,
+            "initial": true,
+            "entry": true,
+            "extraAsync": false,
+            "size": 24,
+            "names": [
+                "main"
+            ],
+            "files": [
+                "main.js"
+            ],
+            "hash": "48d1443686826fb813b4",
+            "parents": [],
+            "origins": [
+                {
+                    "moduleId": 0,
+                    "module": "/Users/zeecoder/work/Capital/node_modules/babel-loader/index.js!/Users/zeecoder/work/Capital/front_src/scripts/entries/main.js",
+                    "moduleIdentifier": "/Users/zeecoder/work/Capital/node_modules/babel-loader/index.js!/Users/zeecoder/work/Capital/front_src/scripts/entries/main.js",
+                    "moduleName": "./front_src/scripts/entries/main.js",
+                    "loc": "",
+                    "name": "main",
+                    "reasons": []
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "rendered": true,
+            "initial": true,
+            "entry": true,
+            "extraAsync": false,
+            "size": 38,
+            "names": [
+                "other"
+            ],
+            "files": [
+                "other.js"
+            ],
+            "hash": "71a6100e658a3fee2e93",
+            "parents": [],
+            "origins": [
+                {
+                    "moduleId": 0,
+                    "module": "/Users/zeecoder/work/Capital/node_modules/babel-loader/index.js!/Users/zeecoder/work/Capital/front_src/scripts/entries/other.js",
+                    "moduleIdentifier": "/Users/zeecoder/work/Capital/node_modules/babel-loader/index.js!/Users/zeecoder/work/Capital/front_src/scripts/entries/other.js",
+                    "moduleName": "./front_src/scripts/entries/other.js",
+                    "loc": "",
+                    "name": "other",
+                    "reasons": []
+                }
+            ]
+        }
+    ],
+    "modules": [
+        {
+            "id": 0,
+            "identifier": "/Users/zeecoder/work/Capital/node_modules/babel-loader/index.js!/Users/zeecoder/work/Capital/front_src/scripts/entries/main.js",
+            "name": "./front_src/scripts/entries/main.js",
+            "index": 0,
+            "index2": 0,
+            "size": 24,
+            "cacheable": true,
+            "built": true,
+            "optional": false,
+            "prefetched": false,
+            "chunks": [
+                0
+            ],
+            "assets": [],
+            "issuer": null,
+            "failed": false,
+            "errors": 0,
+            "warnings": 0,
+            "reasons": [],
+            "source": "console.log('hey bro.');"
+        },
+        {
+            "id": 0,
+            "identifier": "/Users/zeecoder/work/Capital/node_modules/babel-loader/index.js!/Users/zeecoder/work/Capital/front_src/scripts/entries/other.js",
+            "name": "./front_src/scripts/entries/other.js",
+            "index": 1,
+            "index2": 1,
+            "size": 38,
+            "cacheable": true,
+            "built": true,
+            "optional": false,
+            "prefetched": false,
+            "chunks": [
+                1
+            ],
+            "assets": [],
+            "issuer": null,
+            "failed": false,
+            "errors": 0,
+            "warnings": 0,
+            "reasons": [],
+            "source": "console.log('hey bro, other module.');"
+        }
+    ],
+    "filteredModules": 0,
+    "children": []
+}
