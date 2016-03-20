@@ -1,24 +1,35 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.Capital.EJB;
 
-import javax.ejb.Stateless;
-import javax.ejb.LocalBean;
+import java.util.HashMap;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author Mrgoodbyes
  */
-@Stateless
-@LocalBean
+
+@SessionScoped
+@Named("app")
 public class ApplicationBean {
 
+	private HashMap<String,String> config;
+	
+	
+	@PostConstruct
+	public void newSession(){
+		config = new HashMap<String,String>();
+		
+	}
+	
+	
     public void businessMethod() {
     }
+    
+    public String jsAsset(String name){
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
-
+    	return name;
+    }
 }
