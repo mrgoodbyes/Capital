@@ -1,4 +1,4 @@
-package org.Capital.EJB;
+package application;
 
 import java.util.HashMap;
 
