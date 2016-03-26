@@ -13,3 +13,4 @@ hs_err_pid*
 
 # front stuff
 node_modules
+npm-debug.log

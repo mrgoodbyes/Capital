@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch-assets": "./node_modules/.bin/webpack --watch",
+    "build-assets": "./node_modules/.bin/webpack",
+    "build-manifest": "./bin/manifest-build"
   },
   "repository": {
     "type": "git",
@@ -23,7 +25,7 @@
     "babel-core": "^6.7.2",
     "chalk": "^1.1.1",
     "crypto": "0.0.3",
-    "gulp": "^3.9.1",
-    "through2": "^2.0.1"
+    "through2": "^2.0.1",
+    "vinyl-fs": "^2.4.2"
   }
 }

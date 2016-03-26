@@ -3,6 +3,9 @@ var crypto = require('crypto');
 var path = require('path');
 var fs = require('fs');
 
+/**
+ * A node module to extract md5 hashes from the incoming file stream.
+ */
 module.exports = function(opts) {
     var manifest = {};
 
