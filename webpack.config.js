@@ -4,6 +4,7 @@ var vfs = require('vinyl-fs');
 var chalk = require('chalk');
 var utils = require('./front_src/utils');
 var manifestBuild = require('./front_src/manifestBuild');
+var cssnext = require('postcss-cssnext');
 
 module.exports = {
     entry: {
@@ -16,8 +17,16 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /.js$/,
-                loader: 'babel-loader'
+                test: /\.jsx?$/,
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015']
+                }
+            },
+            {
+                test:   /\.css$/,
+                loader: "style-loader!css-loader!postcss-loader"
             }
         ]
     },
@@ -25,5 +34,8 @@ module.exports = {
         function() {
             this.plugin('done', manifestBuild.bind(this))
         }
-    ]
+    ],
+    postcss: function () {
+        return [cssnext];
+    }
 };
