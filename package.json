@@ -26,6 +26,7 @@
     "chalk": "^1.1.1",
     "crypto": "0.0.3",
     "through2": "^2.0.1",
-    "vinyl-fs": "^2.4.2"
+    "vinyl-fs": "^2.4.2",
+    "z-image-preloader": "^1.0.0"
   }
 }
