@@ -1,5 +1,3 @@
-import asset from '../modules/asset';
+import game from '../modules/game';
 
-asset.readManifestFromPage();
-
-console.log(asset.url('images/empty.jpg'));
+game.load();
