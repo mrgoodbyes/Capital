@@ -1,4 +1,5 @@
-import test from '../modules/test';
+import asset from '../modules/asset';
 
-test();
-console.log('hey bro.');
+asset.readManifestFromPage();
+
+console.log(asset.url('images/empty.jpg'));
