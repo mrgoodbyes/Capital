@@ -1,4 +1,10 @@
 {
-    "images/empty.jpg": "0752dafa7f905f0ca25f0e077595be1d",
-    "js/main.js": "cd3c5ec8062b930ef3802922bc5617c5"
+    "js/main.js": "b3575149b19a82f8b759614d17f1239c",
+    "images/bluecup.png": "1b972e176e859137b14a73626f935918",
+    "images/browndoor.png": "bb98d5e3c71d9142ef4ad46c83fb3922",
+    "images/greencup.png": "6582eaa48c018dc1c98a6e02aa48d022",
+    "images/player.png": "23e1a7db138253c55c8b0736815384aa",
+    "images/preloader-bar.png": "9a36fe38f5b6e374157dbce011cc949e",
+    "images/tiles.png": "b49cd6e21f63920ab374f99577d60f21",
+    "vendor/phaser.min.js": "89a2fbe6c70fd88a014335b28890b71a"
 }

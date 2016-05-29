@@ -1,3 +1,3 @@
 import game from '../modules/game';
 
-game.load();
+game.init();

@@ -1,29 +1,16 @@
-import asset from './asset';
-
-require('../../styles/canvas.css');
-require('../../styles/canvas-wrapper.css');
+import Boot from './stages/Boot';
+import Preload from './stages/Preload';
+import Game from './stages/Game';
 
 export default {
-    canvas: null,
-    canvasWrapper: null,
+    game: {},
+    init: function() {
+        this.game = new Phaser.Game(160, 160, Phaser.AUTO, '');
 
-    load: function() {
-        asset.readManifestFromPage();
-        this.setupCanvas();
-    },
+        this.game.state.add('Boot', Boot);
+        this.game.state.add('Preload', Preload);
+        this.game.state.add('Game', Game);
 
-    setupCanvas: function() {
-        this.canvasWrapper = document.createElement('div');
-        this.canvasWrapper.classList.add('canvas-wrapper');
-
-        this.canvas = document.createElement('canvas');
-        this.canvas.classList.add('canvas');
-
-        this.canvasWrapper.appendChild(this.canvas);
-        document.getElementsByTagName('body')[0].appendChild(this.canvasWrapper);
-    },
-
-    reRender: function() {
-
+        this.game.state.start('Boot');
     }
 };
