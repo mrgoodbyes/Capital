@@ -1,10 +1,5 @@
-var TopDownGame = TopDownGame || {};
-
-//loading the game assets
-TopDownGame.Preload = function(){};
-
-TopDownGame.Preload.prototype = {
-  preload: function() {
+export default class {
+  preload () {
     //show loading screen
     this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'preloadbar');
     this.preloadBar.anchor.setTo(0.5);
@@ -18,11 +13,9 @@ TopDownGame.Preload.prototype = {
     this.load.image('bluecup', 'images/bluecup.png');
     this.load.image('player', 'images/player.png');
     this.load.image('browndoor', 'images/browndoor.png');
+  }
 
-  },
-  create: function() {
+  create () {
     this.state.start('Game');
   }
 };
-
-export default TopDownGame.Preload;
