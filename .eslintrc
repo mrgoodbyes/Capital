@@ -1,0 +1,4 @@
+extends: standard
+globals:
+    Phaser: false
+    WebSocket: false

@@ -1,28 +1,29 @@
-import Boot from './stages/Boot';
-import Preload from './stages/Preload';
-import Game from './stages/Game';
+import Boot from './stages/Boot'
+import Preload from './stages/Preload'
+import Game from './stages/Game'
 
-require('../../styles/body.css');
+require('../../styles/body.css')
 
 export default {
-    game: {},
-    init: function() {
-        this.game = new Phaser.Game(160, 160, Phaser.AUTO, '');
+  game: {},
 
-        this.game.state.add('Boot', Boot);
-        this.game.state.add('Preload', Preload);
-        this.game.state.add('Game', Game);
+  init: function () {
+    this.game = new Phaser.Game(160, 160, Phaser.AUTO, '')
 
-        this.game.state.start('Boot');
-    },
+    this.game.state.add('Boot', Boot)
+    this.game.state.add('Preload', Preload)
+    this.game.state.add('Game', Game)
 
-    pause: function() {
-        console.log('Game paused');
-        this.game.paused = true;
-    },
+    this.game.state.start('Boot')
+  },
 
-    unPause: function() {
-        console.log('Game unpaused');
-        this.game.paused = false;
-    }
-};
+  pause: function () {
+    console.log('Game paused')
+    this.game.paused = true
+  },
+
+  unPause: function () {
+    console.log('Game unpaused')
+    this.game.paused = false
+  }
+}

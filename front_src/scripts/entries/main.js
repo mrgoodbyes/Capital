@@ -1,3 +1,3 @@
-import game from '../modules/game';
+import game from '../modules/game'
 
-game.init();
+game.init()
