@@ -4,9 +4,9 @@
   "description": "-",
   "main": "index.js",
   "scripts": {
-    "watch-assets": "./node_modules/.bin/webpack --watch",
-    "build-assets": "./node_modules/.bin/webpack",
-    "build-manifest": "./bin/manifest-build"
+    "watch-assets": "webpack --watch",
+    "build-assets": "webpack",
+    "lint": "eslint front_src"
   },
   "repository": {
     "type": "git",
