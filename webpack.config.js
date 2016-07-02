@@ -1,10 +1,4 @@
-var path = require('path');
-var utils = require('./front_src/utils');
-var vfs = require('vinyl-fs');
-var chalk = require('chalk');
-var utils = require('./front_src/utils');
-var manifestBuild = require('./front_src/manifestBuild');
-var cssnext = require('postcss-cssnext');
+var utils = require('./etc/webpack/utils');
 
 module.exports = {
     entry: {
@@ -30,12 +24,6 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        function() {
-            this.plugin('done', manifestBuild.bind(this))
-        }
-    ],
-    postcss: function () {
-        return [cssnext];
-    }
+    plugins: [require('./etc/webpack/manifest_plugin')],
+    postcss: [require('postcss-cssnext')]
 };
