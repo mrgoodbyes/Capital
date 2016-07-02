@@ -90,6 +90,16 @@
 	        this.game.state.add('Game', _Game2.default);
 
 	        this.game.state.start('Boot');
+	    },
+
+	    pause: function pause() {
+	        console.log('Game paused');
+	        this.game.paused = true;
+	    },
+
+	    unPause: function unPause() {
+	        console.log('Game unpaused');
+	        this.game.paused = false;
 	    }
 	};
 
@@ -146,7 +156,7 @@
 
 /***/ },
 /* 3 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -155,6 +165,16 @@
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _socket = __webpack_require__(11);
+
+	var _socket2 = _interopRequireDefault(_socket);
+
+	var _game = __webpack_require__(1);
+
+	var _game2 = _interopRequireDefault(_game);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -183,7 +203,14 @@
 	  }, {
 	    key: 'create',
 	    value: function create() {
-	      this.state.start('Game');
+	      var _this = this;
+
+	      _socket2.default.init().then(function () {
+	        _socket2.default.onDisconnect = _game2.default.pause.bind(_game2.default);
+	        _socket2.default.onReconnect = _game2.default.unPause.bind(_game2.default);
+
+	        _this.state.start('Game');
+	      });
 	    }
 	  }]);
 
@@ -722,6 +749,60 @@
 
 	// exports
 
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+	    connection: null,
+
+	    init: function init() {
+	        return this.connect();
+	    },
+
+	    connect: function connect() {
+	        var _this = this;
+
+	        return new Promise(function (resolve) {
+	            var firstTry = _this.connection === null;
+
+	            if (!firstTry && typeof _this.onDisconnect === 'function') {
+	                _this.onDisconnect();
+	            }
+
+	            var setup = function setup() {
+	                _this.connection = new WebSocket('ws://localhost:8080');
+	                _this.connection.onclose = function () {
+	                    setTimeout(setup, 1000);
+	                };
+	                _this.connection.onopen = function () {
+	                    resolve();
+	                    if (!firstTry) {
+	                        _this.onReconnect();
+	                    }
+	                };
+	            };
+
+	            setup();
+	        }).then(function () {
+	            _this.connection.onmessage = _this.onMessage.bind(_this);
+	            _this.connection.onclose = _this.connect.bind(_this);
+	        });
+	    },
+
+	    onMessage: function onMessage(message) {
+	        console.log('Server:', JSON.parse(message.data));
+	    },
+
+	    onDisconnect: null,
+	    onReconnect: null
+	};
 
 /***/ }
 /******/ ]);

@@ -14,5 +14,15 @@ export default {
         this.game.state.add('Game', Game);
 
         this.game.state.start('Boot');
+    },
+
+    pause: function() {
+        console.log('Game paused');
+        this.game.paused = true;
+    },
+
+    unPause: function() {
+        console.log('Game unpaused');
+        this.game.paused = false;
     }
 };

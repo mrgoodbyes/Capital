@@ -1,3 +1,6 @@
+import socket from '../socket';
+import game from '../game';
+
 export default class {
   preload () {
     //show loading screen
@@ -16,6 +19,11 @@ export default class {
   }
 
   create () {
-    this.state.start('Game');
+    socket.init().then(() => {
+      socket.onDisconnect = game.pause.bind(game);
+      socket.onReconnect = game.unPause.bind(game);
+
+      this.state.start('Game');
+    });
   }
 };
