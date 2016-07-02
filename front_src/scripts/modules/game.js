@@ -2,6 +2,8 @@ import Boot from './stages/Boot';
 import Preload from './stages/Preload';
 import Game from './stages/Game';
 
+require('../../styles/body.css');
+
 export default {
     game: {},
     init: function() {
